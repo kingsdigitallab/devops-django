@@ -1,8 +1,11 @@
 # devops-django
 
-This is the repository for the devops project at [https://kdl.kcl.ac.uk](King's Digital Lab)
+This is the repository for the devops project at [Kings Digital Lab](https://kdl.kcl.ac.uk)
 
 This project is configured to use [Vagrant](https://www.vagrantup.com/) for local development and [Fabric](http://www.fabfile.org/) for deployment. 
+
+## WARNING
+This software is not production ready.
 
 ## About 
 DevOps is a tool for simplifying all aspects of Server Management and Application Deployment.
