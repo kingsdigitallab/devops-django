@@ -1,0 +1,15 @@
+
+ /**
+  * Bulma & Variables
+  */
+
+// Import fontawesome
+@import "../vendor/font-awesome/scss/font-awesome";
+
+// Import the initial variables
+@import "../vendor/bulma/sass/utilities/initial-variables";
+
+$primary: #0A2D50;
+
+// Import Bulma
+@import "../vendor/bulma/bulma";

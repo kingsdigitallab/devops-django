@@ -1,0 +1,9 @@
+[Unit]
+Description=DeployBot Monitor
+
+[Service]
+ExecStart=/opt/deploybot/monitor.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

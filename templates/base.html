@@ -1,0 +1,36 @@
+{% load staticfiles compress  %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block meta_title %}{{ meta_title }}{% endblock %} | KDL DevOps</title>
+  <meta name="author" content="King's Digital Lab">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% compress css %}
+  <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
+  {% endcompress %}
+</head>
+<body>
+
+    {% include 'includes/navigation.html' %}
+
+    {% block main %}
+    {% endblock %}
+
+    {% block footer %}
+    {% include 'includes/footer.html' %}
+    {% endblock %}
+
+  {% compress js %}
+  <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  {% endcompress %}
+
+  {% block footer_scripts %}{% endblock %}
+
+</body>
+</html>

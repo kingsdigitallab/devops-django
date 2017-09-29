@@ -1,0 +1,130 @@
+{% load staticfiles %}
+{% block main_menu %}
+<div class="container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{% url 'overview' %}"><img src="{% static 'images/devops-logo-blue.png' %}"></a>
+
+                <div class="navbar-burger burger" data-target="navMenu">
+                    <span></span> <span></span> <span></span>
+                </div>
+            </div>
+
+
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="{% url 'overview' %}">Overview</a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="{% url 'servers' %}">Servers</a>
+
+                        <div class="navbar-dropdown">
+                            <span class="navbar-item"><input class="input" type="text" placeholder="Search..."></span>
+
+                            {% if request.user.is_superuser %}
+                            <hr class="navbar-divider">
+
+                            <a class="navbar-item" href="{% url 'servers_add' %}">Add a Server</a>
+                            <a class="navbar-item" href="{% url 'servers_add_subnetscan' %}">Scan for Servers</a>
+
+                            {% endif %}
+                            <hr class="navbar-divider">
+
+                            <div class="navbar-item">
+                                <div class="navbar-content">
+                                    <div class="level is-mobile">
+                                        <div class="level-left">
+                                            <div class="level-item">
+                                                Server search results here
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if request.user.is_superuser %}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="http://bulma.io/blog/">Updates</a>
+
+                        <div class="navbar-dropdown" data-style="width: 18rem;" id="blogDropdown">
+                            <a class="navbar-item" href="#">Schedule</a>
+                            <a class="navbar-item" href="#">Manual Updates</a>
+                            <a class="navbar-item" href="#">History</a>
+                            
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#">History</a>
+
+                        <div class="navbar-dropdown" data-style="width: 18rem;" id="blogDropdown">
+                            <a class="navbar-item" href="/2017/03/10/new-field-element/">
+                            <div class="navbar-content">
+                                <p><small class="has-text-info">12 Jul 2017</small>
+                                </p>
+
+
+                                <p>dprr: ehall deployed to stg</p>
+                            </div></a> <a class="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                            <div class="navbar-content">
+                                <p><small class="has-text-info">10 Jul 2017</small>
+                                </p>
+
+
+                                <p>16 servers updated</p>
+                            </div></a> <a class="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                            <div class="navbar-content">
+                                <p><small class="has-text-info">09 Feb 2017</small>
+                                </p>
+
+
+                                <p>languageacts: down</p>
+                            </div></a> <a class="navbar-item" href="#">See More...</a>
+
+                        </div>
+                    </div>
+
+                    {% if request.user.is_superuser %}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="/documentation/overview/start/">Management</a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="#">Autofs Distribution</a>
+                            <a class="navbar-item" href="#">Batch Job</a>
+                            <a class="navbar-item" href="#">Configuration</a>
+                            <a class="navbar-item" href="#">File Distribution</a>
+                            <a class="navbar-item" href="#">Firewall Management</a>
+                            <a class="navbar-item" href="#">Log Cleanup</a>
+                            <a class="navbar-item" href="#">Noticiations</a>
+                            <a class="navbar-item" href="#">Scheduled Tasks</a>
+                            <a class="navbar-item" href="#">Snapshots</a>
+                            <a class="navbar-item" href="#">SSH Key Management</a>
+                            <a class="navbar-item" href="#">SSL Certificates</a>
+                            <a class="navbar-item" href="#">Tactical Overview</a>
+                            
+                
+                            <hr class="navbar-divider">
+
+                            <a class="navbar-item" href="#">Emergency Options</a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control"><a class="button is-primary" href="#"><span class="icon"><i class="fa fa-lock"></i></span> <span>Sign Out </span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}

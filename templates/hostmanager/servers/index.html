@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">{{ meta_title }}</h1>
+
+            <div class="columns">
+                <div class="column">
+                    <strong>Servers Down:</strong> {{ status.servers.down}}
+                </div>
+                <div class="column">
+                    <strong>Server Warnings:</strong> {{ status.servers.warning}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+      
+    </div>
+</section>
+
+
+{% endblock %}

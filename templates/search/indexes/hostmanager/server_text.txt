@@ -1,0 +1,7 @@
+{{ object.name }}
+{{ object.hostname }}.{{ object.domain.fqdn }}
+{{ object.ip }}
+{{ object.category_name }}
+{{ object.description }}
+{{ object.operating_system }}
+{{ object.operating_system.platform }}

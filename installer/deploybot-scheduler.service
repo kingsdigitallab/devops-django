@@ -1,0 +1,9 @@
+[Unit]
+Description=DeployBot Scheduler
+
+[Service]
+ExecStart=/opt/deploybot/scheduler.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

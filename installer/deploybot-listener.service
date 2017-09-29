@@ -1,0 +1,9 @@
+[Unit]
+Description=DeployBot Listener
+
+[Service]
+ExecStart=/opt/deploybot/listener.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
