@@ -298,7 +298,7 @@ AUTH_LDAP_ALWAYS_UPDATE_USER = True
 # Change as required
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine', # noqa
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',  # noqa
         'URL': 'http://127.0.0.1:9200/',
         'INDEX_NAME': 'devops_haystack',
     },

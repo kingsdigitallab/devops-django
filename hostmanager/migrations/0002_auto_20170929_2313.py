@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='server',
             name='ip',
-            field=models.CharField(blank=True, help_text='Will be automatically        populated if the domain is registered.', max_length=255, null=True, verbose_name='IP Address'),
+            field=models.CharField(blank=True, help_text='Will be automatically        populated if the domain is registered.',
+                                   max_length=255, null=True, verbose_name='IP Address'),
         ),
     ]

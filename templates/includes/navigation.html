@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles global_tags %}
 {% block main_menu %}
 <div class="container">
         <nav class="navbar">
@@ -18,8 +18,10 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link" href="{% url 'servers' %}">Servers</a>
 
-                        <div class="navbar-dropdown">
-                            <span class="navbar-item"><input class="input" type="text" placeholder="Search..."></span>
+                        <div class="navbar-dropdown" id="serversDropdown">
+                            <span class="navbar-item">
+                                <input class="input quick-search" type="text" placeholder="Search..." data-target="#navbar-server-list .navbar-item">
+                            </span>
 
                             {% if request.user.is_superuser %}
                             <hr class="navbar-divider">
@@ -30,17 +32,15 @@
                             {% endif %}
                             <hr class="navbar-divider">
 
-                            <div class="navbar-item">
-                                <div class="navbar-content">
-                                    <div class="level is-mobile">
-                                        <div class="level-left">
-                                            <div class="level-item">
-                                                Server search results here
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div id="navbar-server-list">
+                                {% navigation_server_list as nav_server_list %}
+                                {% for server in nav_server_list %}
+                                <a class="navbar-item" href="#">{{ server.get_fqdn }}</a>
+                                {% endfor %}
+                                <span class="navbar-item" id="quick-search-is-empty">No servers found.</span>
                             </div>
+                            
+                            
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link" href="http://bulma.io/blog/">Updates</a>
 
-                        <div class="navbar-dropdown" data-style="width: 18rem;" id="blogDropdown">
+                        <div class="navbar-dropdown" data-style="width: 18rem;" id="updatesDropdown">
                             <a class="navbar-item" href="#">Schedule</a>
                             <a class="navbar-item" href="#">Manual Updates</a>
                             <a class="navbar-item" href="#">History</a>
@@ -60,7 +60,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link" href="#">History</a>
 
-                        <div class="navbar-dropdown" data-style="width: 18rem;" id="blogDropdown">
+                        <div class="navbar-dropdown" data-style="width: 18rem;" id="historyDropdown">
                             <a class="navbar-item" href="/2017/03/10/new-field-element/">
                             <div class="navbar-content">
                                 <p><small class="has-text-info">12 Jul 2017</small>

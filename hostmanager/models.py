@@ -167,7 +167,7 @@ class Server(models.Model):
         help_text='Will be automatically\
         populated if the domain is registered.')
     category = models.ForeignKey(
-        ServerCategory, blank=False, null=False,
+        ServerCategory, blank=True, null=True,
         verbose_name='Server Category')
     description = models.TextField(
         blank=True, null=True, verbose_name='Optional Description')
@@ -182,7 +182,8 @@ class Server(models.Model):
 
     def __str__(self):
         if self.name:
-            return '{} ({})'.format(self.hostname, self.name)
+            return '{}.{} ({})'.format(self.hostname,
+                                       self.domain.fqdn, self.name)
         else:
             return self.hostname
 

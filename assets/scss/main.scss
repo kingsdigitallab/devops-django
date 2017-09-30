@@ -13,3 +13,15 @@ $primary: #0A2D50;
 
 // Import Bulma
 @import "../vendor/bulma/bulma";
+
+// Our styles!
+
+#navbar-server-list
+{
+	max-height: 200px;
+	overflow: scroll;
+}
+#quick-search-is-empty
+{
+	display: none;
+}

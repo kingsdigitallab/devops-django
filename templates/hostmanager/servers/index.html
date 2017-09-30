@@ -9,10 +9,10 @@
 
             <div class="columns">
                 <div class="column">
-                    <strong>Servers Down:</strong> {{ status.servers.down}}
+                    <strong>Servers Down:</strong> {{ status.servers.down }}
                 </div>
                 <div class="column">
-                    <strong>Server Warnings:</strong> {{ status.servers.warning}}
+                    <strong>Server Warnings:</strong> {{ status.servers.warning }}
                 </div>
             </div>
 
@@ -22,7 +22,45 @@
 
 <section class="section">
     <div class="container">
-      
+        {% if servers.count %}
+        <div class="control">
+            <input class="input quick-search" type="text" data-target="#server-list>tbody>tr" placeholder="Quick search...">
+        </div>
+
+        <table class="table" id="server-list">
+            <thead>
+                <tr>
+                    <th><abbr title="Server Name">Name</abbr></th>
+                    <th><abbr title="Server Hostname">Host</abbr></th>
+                    <th><abbr title="Server Category">Category</abbr></th>
+                    <th><abbr title="IP Address">IP</abbr></th>
+                    <th><abbr title="Operating System">OS</abbr></th>
+                    <th><abbr title="Description">Description</abbr></th>
+                    <th><abbr title="Server Status">Status</abbr></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for server in servers %}
+                <tr>
+                    <th><a href="#">{{ server.name }}</a></th>
+                    <td><a href="#">{{ server.get_fqdn }}</a></td>
+                    <td>{% if server.category %}{{ server.category }}{% endif %}</td>
+                    <td>{{ server.ip }}</td>
+                    <td>{{ server.operating_system }}</td>
+                    <td>{% if server.description %}{{ server.description }}{% endif %}</td>
+                    <td>ok</td>
+                    <td></td> 
+                </tr>
+                {% endfor %}
+                <tr id="quick-search-is-empty">
+                    <th>No matching servers found.</th>
+                </tr>
+            </tbody>
+        </table>
+        {% else %}
+        <p>No servers found.
+        {% endif %}
     </div>
 </section>
 
